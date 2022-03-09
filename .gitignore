@@ -17,7 +17,7 @@ Pods/
 
 ## User settings
 xcuserdata/
-/BuddleNews/Resources/Credentials.swift
+Credentials.swift
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
