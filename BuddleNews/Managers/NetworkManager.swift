@@ -34,7 +34,7 @@ final class NetworkManager {
         
         request.setValue("*/*", forHTTPHeaderField: "Accept")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue(API_KEY, forHTTPHeaderField: "x-api-key")
+        request.setValue(Credentials.apiKey, forHTTPHeaderField: "x-api-key")
         
         completion(request)
     }

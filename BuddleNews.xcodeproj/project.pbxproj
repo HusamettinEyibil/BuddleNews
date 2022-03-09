@@ -14,11 +14,11 @@
 		34967C0827D9510E00E074E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34967C0627D9510E00E074E5 /* LaunchScreen.storyboard */; };
 		34967C1627D9524900E074E5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1527D9524900E074E5 /* NetworkManager.swift */; };
 		34967C1827D9566000E074E5 /* HeadlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1727D9566000E074E5 /* HeadlinesViewController.swift */; };
-		34967C1A27D95E9600E074E5 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1927D95E9600E074E5 /* Credentials.swift */; };
 		34967C1C27D9639200E074E5 /* SourcesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1B27D9639200E074E5 /* SourcesResponse.swift */; };
 		34967C1E27D963FA00E074E5 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1D27D963FA00E074E5 /* Source.swift */; };
 		34967C2027D964C700E074E5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1F27D964C700E074E5 /* Category.swift */; };
 		34967C2227D965AC00E074E5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2127D965AC00E074E5 /* NetworkError.swift */; };
+		34967C2627D970C700E074E5 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2527D970C700E074E5 /* Credentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +31,11 @@
 		34967C0927D9510E00E074E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34967C1527D9524900E074E5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		34967C1727D9566000E074E5 /* HeadlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewController.swift; sourceTree = "<group>"; };
-		34967C1927D95E9600E074E5 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		34967C1B27D9639200E074E5 /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
 		34967C1D27D963FA00E074E5 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		34967C1F27D964C700E074E5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		34967C2127D965AC00E074E5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		34967C2527D970C700E074E5 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				34967BFB27D9510C00E074E5 /* AppDelegate.swift */,
 				34967BFD27D9510C00E074E5 /* SceneDelegate.swift */,
 				34967C0427D9510E00E074E5 /* Assets.xcassets */,
-				34967C1927D95E9600E074E5 /* Credentials.swift */,
+				34967C2527D970C700E074E5 /* Credentials.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34967C1E27D963FA00E074E5 /* Source.swift in Sources */,
-				34967C1A27D95E9600E074E5 /* Credentials.swift in Sources */,
 				34967C1627D9524900E074E5 /* NetworkManager.swift in Sources */,
+				34967C2627D970C700E074E5 /* Credentials.swift in Sources */,
 				34967C1827D9566000E074E5 /* HeadlinesViewController.swift in Sources */,
 				34967C0027D9510C00E074E5 /* SourcesViewController.swift in Sources */,
 				34967C2027D964C700E074E5 /* Category.swift in Sources */,
