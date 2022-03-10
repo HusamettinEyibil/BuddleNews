@@ -19,6 +19,8 @@
 		34967C2027D964C700E074E5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C1F27D964C700E074E5 /* Category.swift */; };
 		34967C2227D965AC00E074E5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2127D965AC00E074E5 /* NetworkError.swift */; };
 		34967C2627D970C700E074E5 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2527D970C700E074E5 /* Credentials.swift */; };
+		34967C2927DA795600E074E5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2827DA795600E074E5 /* CategoryCell.swift */; };
+		34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		34967C1F27D964C700E074E5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		34967C2127D965AC00E074E5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		34967C2527D970C700E074E5 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		34967C2827DA795600E074E5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		34967BFA27D9510C00E074E5 /* BuddleNews */ = {
 			isa = PBXGroup;
 			children = (
+				34967C2A27DA83C700E074E5 /* Helpers */,
 				34967C1427D951FA00E074E5 /* Resources */,
 				34967C1327D951EE00E074E5 /* Managers */,
 				34967C1227D951D600E074E5 /* ViewModels */,
@@ -91,6 +96,7 @@
 		34967C1027D951B100E074E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				34967C2727DA792500E074E5 /* Cells */,
 				34967C0627D9510E00E074E5 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -128,9 +134,25 @@
 				34967BFB27D9510C00E074E5 /* AppDelegate.swift */,
 				34967BFD27D9510C00E074E5 /* SceneDelegate.swift */,
 				34967C0427D9510E00E074E5 /* Assets.xcassets */,
-				34967C2527D970C700E074E5 /* Credentials.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		34967C2727DA792500E074E5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				34967C2827DA795600E074E5 /* CategoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		34967C2A27DA83C700E074E5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				34967C2527D970C700E074E5 /* Credentials.swift */,
+				34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,10 +231,12 @@
 				34967C1827D9566000E074E5 /* HeadlinesViewController.swift in Sources */,
 				34967C0027D9510C00E074E5 /* SourcesViewController.swift in Sources */,
 				34967C2027D964C700E074E5 /* Category.swift in Sources */,
+				34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */,
 				34967BFC27D9510C00E074E5 /* AppDelegate.swift in Sources */,
 				34967C1C27D9639200E074E5 /* SourcesResponse.swift in Sources */,
 				34967BFE27D9510C00E074E5 /* SceneDelegate.swift in Sources */,
 				34967C2227D965AC00E074E5 /* NetworkError.swift in Sources */,
+				34967C2927DA795600E074E5 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
