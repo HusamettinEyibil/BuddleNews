@@ -30,14 +30,15 @@ class CategoryCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemBackground
-        contentView.addSubview(imageView)
-        contentView.addSubview(categoryLabel)
-        contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = contentView.height / 6
-        contentView.layer.borderColor = UIColor.label.cgColor
-        contentView.layer.borderWidth = 1
-        contentView.sizeToFit()
+        backgroundColor = .systemBackground
+        contentView.backgroundColor = .clear
+        addSubview(imageView)
+        addSubview(categoryLabel)
+        clipsToBounds = true
+        layer.cornerRadius = contentView.height / 6
+        layer.borderColor = UIColor.label.cgColor
+        layer.borderWidth = 1
+        sizeToFit()
     }
     
     required init?(coder: NSCoder) {
@@ -69,7 +70,16 @@ class CategoryCell: UICollectionViewCell {
         categoryLabel.text = nil
     }
     
-    func configure(with labelText: String) {
+    func configure(with labelText: String, _ isSelected: Bool) {
         categoryLabel.text = labelText
+        setSelected(isSelected)
+    }
+    
+    func setSelected(_ isSelected: Bool) {
+        backgroundColor = isSelected ? .label : .systemBackground
+        categoryLabel.textColor = isSelected ? .systemBackground : .label
+        layer.borderColor = isSelected ? UIColor.systemBackground.cgColor : UIColor.label.cgColor
+        imageView.image = UIImage(systemName: isSelected ? "checkmark" : "plus")
+        imageView.tintColor = isSelected ? .systemBackground : .label
     }
 }

@@ -20,6 +20,8 @@ class SourcesViewController: UIViewController {
         }
     }
     
+    private var selectedCategories = [Category]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,16 +36,20 @@ class SourcesViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView?.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.width, height: 35)
         tableView.frame = CGRect(x: 0, y: view.safeAreaInsets.top + 50, width: view.width, height: view.safeAreaLayoutGuide.layoutFrame.size.height - 50)
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)
+        ]
         tableView.reloadData()
     }
     
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = CGSize(width: 100, height: 35)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.estimatedItemSize = CGSize(width: 100, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 10)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.allowsMultipleSelection = true
         collectionView?.delegate = self
         collectionView?.dataSource = self
         collectionView?.backgroundColor = .systemBackground
@@ -73,7 +79,7 @@ class SourcesViewController: UIViewController {
             if let sources = sources, error == nil {
                 self.sources = sources
             } else {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "Failed to get data.")
             }
         }
     }
@@ -89,7 +95,8 @@ extension SourcesViewController: UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as? CategoryCell else {
             return UICollectionViewCell()
         }
-        cell.configure(with: Category.allCases[indexPath.row].rawValue)
+        let category = Category.allCases[indexPath.row]
+        cell.configure(with: category.rawValue, selectedCategories.contains(category))
         return cell
     }
 
@@ -106,6 +113,19 @@ extension SourcesViewController: UICollectionViewDelegate, UICollectionViewDataS
                                                    options: options,
                                                    attributes: [NSAttributedString.Key.font: font],
                                                    context: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            let category = Category.allCases[indexPath.row]
+            let isAlreadySelected = selectedCategories.contains(category)
+            cell.setSelected(!isAlreadySelected)
+            if !isAlreadySelected {
+                selectedCategories.append(category)
+            } else {
+                selectedCategories.removeAll { $0 == category }
+            }
+        }
     }
 }
 
