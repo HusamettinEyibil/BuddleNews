@@ -49,7 +49,6 @@ class SourcesViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 10)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView?.showsHorizontalScrollIndicator = false
-        collectionView?.allowsMultipleSelection = true
         collectionView?.delegate = self
         collectionView?.dataSource = self
         collectionView?.backgroundColor = .systemBackground

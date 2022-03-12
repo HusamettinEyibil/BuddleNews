@@ -31,7 +31,6 @@ class CategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        contentView.backgroundColor = .clear
         addSubview(imageView)
         addSubview(categoryLabel)
         clipsToBounds = true
@@ -53,16 +52,6 @@ class CategoryCell: UICollectionViewCell {
         categoryLabel.frame = CGRect(x: imageView.right+7, y: 5,
                                      width: contentView.width-contentView.height-10,
                                      height: contentView.height-10)
-    }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        setNeedsLayout()
-        layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-        var frame = layoutAttributes.frame
-        frame.size.width = ceil(size.width)
-        layoutAttributes.frame = frame
-        return layoutAttributes
     }
     
     override func prepareForReuse() {
