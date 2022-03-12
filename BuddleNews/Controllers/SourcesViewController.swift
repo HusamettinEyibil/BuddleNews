@@ -14,6 +14,15 @@ class SourcesViewController: UIViewController {
     
     private var sources = [SourcesViewModel]() {
         didSet {
+            filteredSources = sources
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    private var filteredSources = [SourcesViewModel]() {
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -125,20 +134,25 @@ extension SourcesViewController: UICollectionViewDelegate, UICollectionViewDataS
                 selectedCategories.removeAll { $0 == category }
             }
         }
+        var filtered = [SourcesViewModel]()
+        for category in selectedCategories {
+            filtered.append(contentsOf: sources.filter({ $0.category == category }))
+        }
+        filteredSources = selectedCategories.isEmpty ? sources : filtered
     }
 }
 
 // MARK: - Table View
 extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sources.count
+        return filteredSources.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SourcesTableViewCell.identifier, for: indexPath) as? SourcesTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: sources[indexPath.row])
+        cell.configure(with: filteredSources[indexPath.row])
         return cell
     }
     
