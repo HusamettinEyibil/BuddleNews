@@ -12,6 +12,14 @@ class SourcesViewController: UIViewController {
     private var collectionView: UICollectionView?
     private var tableView = UITableView()
     
+    private var sources = [SourcesViewModel]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +33,8 @@ class SourcesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.width, height: 35)
-        tableView.frame = CGRect(x: 0, y: view.safeAreaInsets.top + 50, width: view.width, height: 200)
+        tableView.frame = CGRect(x: 0, y: view.safeAreaInsets.top + 50, width: view.width, height: view.safeAreaLayoutGuide.layoutFrame.size.height - 50)
+        tableView.reloadData()
     }
     
     private func configureCollectionView() {
@@ -49,19 +58,22 @@ class SourcesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .systemPink
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.backgroundColor = .systemBackground
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        tableView.separatorColor = .systemGray.withAlphaComponent(0.4)
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(SourcesTableViewCell.self, forCellReuseIdentifier: SourcesTableViewCell.identifier)
         view.addSubview(tableView)
     }
     
     private func getSources() {
-        NetworkManager.shared.getSources { result in
-            switch result {
-            case .success(let response):
-                
-                break
-            case .failure(let error):
-                print(error.localizedDescription)
+        SourcesViewModel.getFilteredSources { [weak self] sources, error in
+            guard let self = self else {return}
+            if let sources = sources, error == nil {
+                self.sources = sources
+            } else {
+                print(error?.localizedDescription)
             }
         }
     }
@@ -97,15 +109,22 @@ extension SourcesViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
+// MARK: - Table View
 extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return sources.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemBlue
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SourcesTableViewCell.identifier, for: indexPath) as? SourcesTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: sources[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

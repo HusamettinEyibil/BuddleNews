@@ -21,6 +21,8 @@
 		34967C2627D970C700E074E5 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2527D970C700E074E5 /* Credentials.swift */; };
 		34967C2927DA795600E074E5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2827DA795600E074E5 /* CategoryCell.swift */; };
 		34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */; };
+		34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */; };
+		34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		34967C2527D970C700E074E5 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		34967C2827DA795600E074E5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewCell.swift; sourceTree = "<group>"; };
+		34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		34967C1227D951D600E074E5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				34967C2827DA795600E074E5 /* CategoryCell.swift */,
+				34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 				34967C2627D970C700E074E5 /* Credentials.swift in Sources */,
 				34967C1827D9566000E074E5 /* HeadlinesViewController.swift in Sources */,
 				34967C0027D9510C00E074E5 /* SourcesViewController.swift in Sources */,
+				34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */,
 				34967C2027D964C700E074E5 /* Category.swift in Sources */,
 				34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */,
 				34967BFC27D9510C00E074E5 /* AppDelegate.swift in Sources */,
+				34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */,
 				34967C1C27D9639200E074E5 /* SourcesResponse.swift in Sources */,
 				34967BFE27D9510C00E074E5 /* SceneDelegate.swift in Sources */,
 				34967C2227D965AC00E074E5 /* NetworkError.swift in Sources */,
