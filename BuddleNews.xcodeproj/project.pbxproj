@@ -23,6 +23,7 @@
 		34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */; };
 		34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */; };
 		F06CE86227DCDB2C0056026E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86127DCDB2C0056026E /* Credentials.swift */; };
+		F06CE86427DD6C920056026E /* HeadlinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86327DD6C920056026E /* HeadlinesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewCell.swift; sourceTree = "<group>"; };
 		34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewModel.swift; sourceTree = "<group>"; };
 		F06CE86127DCDB2C0056026E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		F06CE86327DD6C920056026E /* HeadlinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				34967C2827DA795600E074E5 /* CategoryCell.swift */,
 				34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */,
+				F06CE86327DD6C920056026E /* HeadlinesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */,
 				34967C2027D964C700E074E5 /* Category.swift in Sources */,
 				34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */,
+				F06CE86427DD6C920056026E /* HeadlinesTableViewCell.swift in Sources */,
 				34967BFC27D9510C00E074E5 /* AppDelegate.swift in Sources */,
 				34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */,
 				34967C1C27D9639200E074E5 /* SourcesResponse.swift in Sources */,

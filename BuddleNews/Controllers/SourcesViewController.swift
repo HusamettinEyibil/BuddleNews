@@ -149,7 +149,8 @@ extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SourcesTableViewCell.identifier, for: indexPath) as? SourcesTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SourcesTableViewCell.identifier, for: indexPath) as? SourcesTableViewCell else
+        {
             return UITableViewCell()
         }
         cell.configure(with: filteredSources[indexPath.row])
@@ -158,6 +159,11 @@ extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let headlinesVC = HeadlinesViewController()
+        headlinesVC.modalPresentationStyle = .fullScreen
+        headlinesVC.modalTransitionStyle = .coverVertical
+        navigationController?.pushViewController(headlinesVC, animated: true)
     }
 }
 
