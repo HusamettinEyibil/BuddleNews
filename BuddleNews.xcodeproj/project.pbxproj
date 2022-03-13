@@ -22,8 +22,13 @@
 		34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */; };
 		34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */; };
 		34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */; };
+		E40E511BAF1DFA8A8E746D76 /* Pods_BuddleNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41908804543AED02B14EE88 /* Pods_BuddleNews.framework */; };
 		F06CE86227DCDB2C0056026E /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86127DCDB2C0056026E /* Credentials.swift */; };
 		F06CE86427DD6C920056026E /* HeadlinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86327DD6C920056026E /* HeadlinesTableViewCell.swift */; };
+		F06CE86627DE251A0056026E /* HeadlinesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86527DE251A0056026E /* HeadlinesResponse.swift */; };
+		F06CE86827DE25320056026E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86727DE25320056026E /* Article.swift */; };
+		F06CE86A27DE29820056026E /* HeadlinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86927DE29820056026E /* HeadlinesViewModel.swift */; };
+		F06CE86C27DE2BBA0056026E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CE86B27DE2BBA0056026E /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +49,15 @@
 		34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		34967C2F27DC053300E074E5 /* SourcesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewCell.swift; sourceTree = "<group>"; };
 		34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesViewModel.swift; sourceTree = "<group>"; };
+		986FC3F372D7522F3763AC2F /* Pods-BuddleNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuddleNews.debug.xcconfig"; path = "Target Support Files/Pods-BuddleNews/Pods-BuddleNews.debug.xcconfig"; sourceTree = "<group>"; };
+		A41908804543AED02B14EE88 /* Pods_BuddleNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuddleNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBC6E2C78E3D04726706FB6 /* Pods-BuddleNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuddleNews.release.xcconfig"; path = "Target Support Files/Pods-BuddleNews/Pods-BuddleNews.release.xcconfig"; sourceTree = "<group>"; };
 		F06CE86127DCDB2C0056026E /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		F06CE86327DD6C920056026E /* HeadlinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesTableViewCell.swift; sourceTree = "<group>"; };
+		F06CE86527DE251A0056026E /* HeadlinesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesResponse.swift; sourceTree = "<group>"; };
+		F06CE86727DE25320056026E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		F06CE86927DE29820056026E /* HeadlinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesViewModel.swift; sourceTree = "<group>"; };
+		F06CE86B27DE2BBA0056026E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40E511BAF1DFA8A8E746D76 /* Pods_BuddleNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +77,8 @@
 			children = (
 				34967BFA27D9510C00E074E5 /* BuddleNews */,
 				34967BF927D9510C00E074E5 /* Products */,
+				CC5E5D983B1038590C05E6C3 /* Pods */,
+				FB14AD92CF0DDC04AF7168B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +130,8 @@
 				34967C1D27D963FA00E074E5 /* Source.swift */,
 				34967C1F27D964C700E074E5 /* Category.swift */,
 				34967C2127D965AC00E074E5 /* NetworkError.swift */,
+				F06CE86527DE251A0056026E /* HeadlinesResponse.swift */,
+				F06CE86727DE25320056026E /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				34967C3127DC1D3600E074E5 /* SourcesViewModel.swift */,
+				F06CE86927DE29820056026E /* HeadlinesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -160,8 +178,27 @@
 			children = (
 				34967C2B27DA83FE00E074E5 /* UIViewExtension.swift */,
 				F06CE86127DCDB2C0056026E /* Credentials.swift */,
+				F06CE86B27DE2BBA0056026E /* DateExtension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CC5E5D983B1038590C05E6C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				986FC3F372D7522F3763AC2F /* Pods-BuddleNews.debug.xcconfig */,
+				EDBC6E2C78E3D04726706FB6 /* Pods-BuddleNews.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FB14AD92CF0DDC04AF7168B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A41908804543AED02B14EE88 /* Pods_BuddleNews.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34967C0C27D9510E00E074E5 /* Build configuration list for PBXNativeTarget "BuddleNews" */;
 			buildPhases = (
+				6AA036C7B24F692902FF2FAE /* [CP] Check Pods Manifest.lock */,
 				34967BF427D9510C00E074E5 /* Sources */,
 				34967BF527D9510C00E074E5 /* Frameworks */,
 				34967BF627D9510C00E074E5 /* Resources */,
+				E4ADF56B698E93CA302D8B32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,6 +268,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6AA036C7B24F692902FF2FAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BuddleNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4ADF56B698E93CA302D8B32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuddleNews/Pods-BuddleNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BuddleNews/Pods-BuddleNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuddleNews/Pods-BuddleNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34967BF427D9510C00E074E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -239,15 +320,19 @@
 				34967C1827D9566000E074E5 /* HeadlinesViewController.swift in Sources */,
 				34967C0027D9510C00E074E5 /* SourcesViewController.swift in Sources */,
 				34967C3227DC1D3600E074E5 /* SourcesViewModel.swift in Sources */,
+				F06CE86C27DE2BBA0056026E /* DateExtension.swift in Sources */,
 				34967C2027D964C700E074E5 /* Category.swift in Sources */,
 				34967C2C27DA83FE00E074E5 /* UIViewExtension.swift in Sources */,
 				F06CE86427DD6C920056026E /* HeadlinesTableViewCell.swift in Sources */,
 				34967BFC27D9510C00E074E5 /* AppDelegate.swift in Sources */,
 				34967C3027DC053300E074E5 /* SourcesTableViewCell.swift in Sources */,
+				F06CE86A27DE29820056026E /* HeadlinesViewModel.swift in Sources */,
 				34967C1C27D9639200E074E5 /* SourcesResponse.swift in Sources */,
 				F06CE86227DCDB2C0056026E /* Credentials.swift in Sources */,
 				34967BFE27D9510C00E074E5 /* SceneDelegate.swift in Sources */,
 				34967C2227D965AC00E074E5 /* NetworkError.swift in Sources */,
+				F06CE86827DE25320056026E /* Article.swift in Sources */,
+				F06CE86627DE251A0056026E /* HeadlinesResponse.swift in Sources */,
 				34967C2927DA795600E074E5 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +469,7 @@
 		};
 		34967C0D27D9510E00E074E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 986FC3F372D7522F3763AC2F /* Pods-BuddleNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -412,6 +498,7 @@
 		};
 		34967C0E27D9510E00E074E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDBC6E2C78E3D04726706FB6 /* Pods-BuddleNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

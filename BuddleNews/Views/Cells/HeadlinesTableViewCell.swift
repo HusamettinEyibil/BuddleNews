@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HeadlinesTableViewCell: UITableViewCell {
     static let identifier = "HeadlinesTableViewCell"
@@ -18,12 +19,19 @@ class HeadlinesTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private let label: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .light)
         label.numberOfLines = 0
-        label.backgroundColor = .systemYellow
-//        label.text = "dkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsdadkjsadkjasnsda"
+        label.backgroundColor = .systemBackground
+        return label
+    }()
+    
+    private let dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .light)
+        label.numberOfLines = 0
+        label.backgroundColor = .systemBackground
         return label
     }()
     
@@ -44,17 +52,22 @@ class HeadlinesTableViewCell: UITableViewCell {
         newsImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         newsImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
-        contentView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: newsImageView.bottomAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        contentView.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
 
     }
     
-    public func configure(with headline: String) {
-        label.text = headline
+    public func configure(with headline: HeadlinesViewModel) {
+        titleLabel.text = headline.title
+        guard let url = URL(string: headline.imageURL) else {
+            newsImageView.image = UIImage(systemName: "photo")
+            return
+        }
+        newsImageView.sd_setImage(with: url, completed: nil)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,7 +77,7 @@ class HeadlinesTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         newsImageView.image = nil
-        label.text = nil
+        titleLabel.text = nil
     }
 
 }

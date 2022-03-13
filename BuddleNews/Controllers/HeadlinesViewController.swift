@@ -10,6 +10,15 @@ import UIKit
 class HeadlinesViewController: UIViewController {
     
     private var tableView = UITableView()
+    
+    public var sourceId: String!
+    private var articles = [HeadlinesViewModel]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +26,7 @@ class HeadlinesViewController: UIViewController {
         title = "Headlines"
         view.backgroundColor = .systemBackground
         configureTableView()
+        getHeadlines()
 
     }
     
@@ -39,7 +49,17 @@ class HeadlinesViewController: UIViewController {
         tableView.register(HeadlinesTableViewCell.self, forCellReuseIdentifier: HeadlinesTableViewCell.identifier)
         view.addSubview(tableView)
     }
-    
+
+    private func getHeadlines() {
+        HeadlinesViewModel.getArticles(withSource: sourceId) { [weak self] articles, error in
+            guard let self = self else {return}
+            if let articles = articles, error == nil {
+                self.articles = articles
+            } else {
+                print(error?.localizedDescription ?? "Failed to get data.")
+            }
+        }
+    }
 
 
 }
@@ -47,14 +67,14 @@ class HeadlinesViewController: UIViewController {
 // MARK: - Table View
 extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HeadlinesTableViewCell.identifier, for: indexPath) as? HeadlinesTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: String(indexPath.row))
+        cell.configure(with: articles[indexPath.row])
         return cell
     }
     

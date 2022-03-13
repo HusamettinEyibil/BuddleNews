@@ -161,6 +161,7 @@ extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let headlinesVC = HeadlinesViewController()
+        headlinesVC.sourceId = filteredSources[indexPath.row].id
         headlinesVC.modalPresentationStyle = .fullScreen
         headlinesVC.modalTransitionStyle = .coverVertical
         navigationController?.pushViewController(headlinesVC, animated: true)

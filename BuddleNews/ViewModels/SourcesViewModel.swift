@@ -8,6 +8,7 @@
 import Foundation
 
 struct SourcesViewModel {
+    let id: String
     let name: String
     let description: String
     let category: Category
@@ -19,7 +20,8 @@ struct SourcesViewModel {
                 if let sources = response.sources {
                     let filtered : [SourcesViewModel] = sources.filter({ source in
                         source.language == "en"
-                    }).map { SourcesViewModel(name: $0.name ?? "",
+                    }).map { SourcesViewModel(id: $0.id ?? "",
+                                              name: $0.name ?? "",
                                               description: $0.description ?? "",
                                               category: $0.category ?? .general)
                     }
@@ -31,5 +33,3 @@ struct SourcesViewModel {
         }
     }
 }
-
-
