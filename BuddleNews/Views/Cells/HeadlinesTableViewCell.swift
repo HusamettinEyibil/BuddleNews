@@ -68,6 +68,7 @@ class HeadlinesTableViewCell: UITableViewCell {
             return
         }
         newsImageView.sd_setImage(with: url, completed: nil)
+        dateLabel.text = Date.utcToLocal(dateStr: headline.articleDate)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
