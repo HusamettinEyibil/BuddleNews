@@ -154,6 +154,7 @@ extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(with: filteredSources[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -162,6 +163,7 @@ extension SourcesViewController: UITableViewDelegate, UITableViewDataSource {
         
         let headlinesVC = HeadlinesViewController()
         headlinesVC.sourceId = filteredSources[indexPath.row].id
+        headlinesVC.title = filteredSources[indexPath.row].name
         headlinesVC.modalPresentationStyle = .fullScreen
         headlinesVC.modalTransitionStyle = .coverVertical
         navigationController?.pushViewController(headlinesVC, animated: true)

@@ -23,7 +23,6 @@ class HeadlinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Headlines"
         view.backgroundColor = .systemBackground
         configureTableView()
         getHeadlines()
@@ -54,7 +53,9 @@ class HeadlinesViewController: UIViewController {
         HeadlinesViewModel.getArticles(withSource: sourceId) { [weak self] articles, error in
             guard let self = self else {return}
             if let articles = articles, error == nil {
-                self.articles = articles
+                self.articles = articles.sorted(by: {
+                    Date.strToTimeInterval(dateStr: $0.articleDate) > Date.strToTimeInterval(dateStr: $1.articleDate)
+                })
             } else {
                 print(error?.localizedDescription ?? "Failed to get data.")
             }
@@ -80,5 +81,9 @@ extension HeadlinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }

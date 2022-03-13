@@ -14,8 +14,9 @@ class HeadlinesTableViewCell: UITableViewCell {
     private let newsImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.tintColor = .label
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .systemBlue
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .systemBackground
         return imageView
     }()
     
@@ -32,6 +33,7 @@ class HeadlinesTableViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: 15, weight: .light)
         label.numberOfLines = 0
         label.backgroundColor = .systemBackground
+        label.textAlignment = .right
         return label
     }()
     
@@ -42,23 +44,29 @@ class HeadlinesTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.contentView.layoutIfNeeded()
-        
+                
         let marginGuide = contentView.layoutMarginsGuide
+        
+        contentView.addSubview(dateLabel)
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        dateLabel.widthAnchor.constraint(equalToConstant: contentView.width/3).isActive = true
         
         contentView.addSubview(newsImageView)
         newsImageView.translatesAutoresizingMaskIntoConstraints = false
-        newsImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        newsImageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor).isActive = true
         newsImageView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         newsImageView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-        newsImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        newsImageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 15).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
-
     }
     
     public func configure(with headline: HeadlinesViewModel) {
@@ -67,7 +75,7 @@ class HeadlinesTableViewCell: UITableViewCell {
             newsImageView.image = UIImage(systemName: "photo")
             return
         }
-        newsImageView.sd_setImage(with: url, completed: nil)
+        newsImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"), options: .continueInBackground, completed: nil)
         dateLabel.text = Date.utcToLocal(dateStr: headline.articleDate)
     }
 
@@ -79,6 +87,7 @@ class HeadlinesTableViewCell: UITableViewCell {
         super.prepareForReuse()
         newsImageView.image = nil
         titleLabel.text = nil
+        dateLabel.text = nil
     }
 
 }
